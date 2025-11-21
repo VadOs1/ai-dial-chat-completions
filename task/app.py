@@ -10,9 +10,9 @@ from task.models.role import Role
 
 async def start(custom_client: bool, stream: bool) -> None:
     if custom_client:
-        client = CustomDialClient(deployment_name="claude-sonnet-4@20250514")
+        client = CustomDialClient(deployment_name="gpt-5-nano-2025-08-07")
     else:
-        client = DialClient(deployment_name="claude-sonnet-4@20250514")
+        client = DialClient(deployment_name="gpt-5-nano-2025-08-07")
 
     conversation = Conversation()
 
@@ -50,4 +50,4 @@ async def start(custom_client: bool, stream: bool) -> None:
         print(f"AI: {ai_message.content}")
 
 
-asyncio.run(start(False, True))
+asyncio.run(start(True, True))
