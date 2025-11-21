@@ -47,7 +47,6 @@ async def start(custom_client: bool, stream: bool) -> None:
             ai_message = client.get_completion(conversation.get_messages())
 
         conversation.add_message(ai_message)
-        print(f"AI: {ai_message.content}")
 
 
 asyncio.run(start(True, True))
