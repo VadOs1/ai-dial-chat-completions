@@ -45,8 +45,8 @@ class DialClient(BaseClient):
             if chunk.choices and len(chunk.choices) > 0:
                 delta = chunk.choices[0].delta
                 if delta and delta.content:
-                    print(delta.content, end='')
+                    print(delta.content, end="")
                     contents.append(delta.content)
 
         print()
-        return Message(Role.AI, ''.join(contents))
+        return Message(Role.AI, "".join(contents))
