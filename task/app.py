@@ -1,18 +1,18 @@
 import asyncio
 
 from task.clients.client import DialClient
+from task.clients.custom_client import CustomDialClient
 from task.constants import DEFAULT_SYSTEM_PROMPT
 from task.models.conversation import Conversation
 from task.models.message import Message
 from task.models.role import Role
 
 
-async def start(stream: bool) -> None:
-    client = DialClient(
-        deployment_name="claude-sonnet-4@20250514",
-    )
-
-    # TODO: Implement CustomClient
+async def start(custom_client: bool, stream: bool) -> None:
+    if custom_client:
+        client = CustomDialClient(deployment_name="claude-sonnet-4@20250514")
+    else:
+        client = DialClient(deployment_name="claude-sonnet-4@20250514")
 
     conversation = Conversation()
 
@@ -50,4 +50,4 @@ async def start(stream: bool) -> None:
         print(f"AI: {ai_message.content}")
 
 
-asyncio.run(start(True))
+asyncio.run(start(False, True))
