@@ -9,7 +9,7 @@ from task.models.role import Role
 
 async def start(stream: bool) -> None:
     client = DialClient(
-        deployment_name="gpt-4o",
+        deployment_name="claude-sonnet-4@20250514",
     )
 
     # TODO: Implement CustomClient
